@@ -9,14 +9,53 @@
 // Execute `rustlings hint errors1` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
-pub fn generate_nametag_text(name: String) -> Option<String> {
+// #[derive(Debug)]
+// struct MyError {
+//     message: String,
+// }
+
+// impl std::error::Error for MyError {
+//     fn description(&self) -> &str {
+//         &self.message
+//     }
+// }
+
+// impl std::fmt::Display for MyError {
+//     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+//         write!(f, "{}", self.message)
+//     }
+// }
+
+// impl PartialEq for MyError {
+//     fn eq(&self, other: &Self) -> bool {
+//         self.message == other.message
+//     }
+// }
+
+// impl Into<String> for MyError {
+//     fn into(self) -> String {
+//         self.message
+//     }
+// }
+
+// pub fn generate_nametag_text(name: String) -> Result<String, MyError> {
+//     if name.is_empty() {
+//         // Empty names aren't allowed.
+//         Err(MyError {
+//             message: "`name` was empty; it must be nonempty.".to_string(),
+//         })
+//     } else {
+//         Ok(format!("Hi! My name is {}", name))
+//     }
+// }
+
+pub fn generate_nametag_text(name: String) -> Result<String, String> {
     if name.is_empty() {
         // Empty names aren't allowed.
-        None
+        Err("`name` was empty; it must be nonempty.".to_string())
     } else {
-        Some(format!("Hi! My name is {}", name))
+        Ok(format!("Hi! My name is {}", name))
     }
 }
 
